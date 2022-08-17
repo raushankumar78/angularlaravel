@@ -1,0 +1,9 @@
+table tr {
+    height: 40px;
+    border: 2px;
+}
+
+.container {
+    width: 60%;
+    margin-top: 10%;
+}

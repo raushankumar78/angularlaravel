@@ -1,0 +1,28 @@
+<div class="container">
+    <h3>Post List</h3>
+    <input type="text" name="tags" class="form-control search" placeholder="search.." [(ngModel)]="searchtag" (ngModelChange)="searchBytag()">
+    <a routerLink="/post/create" class="btn btn-success">Create</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Subtitle</th>
+                <th scope="col">Tags</th>
+                <th scope="col">Content</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let post of postData.data">
+                <th scope="row">{{post.id}}</th>
+                <td>{{post.title}}</td>
+                <td>{{post.subtitle}}</td>
+                <td>{{post.tags}}</td>
+                <td>{{post.content}}</td>
+                <td><a href="#" [routerLink]="['/post/', 'show', post.id  ]" class="btn btn-primary mx-2">Show</a> <a class="btn btn-primary" [routerLink]="['/post/', 'edit', post.id  ]">Edit</a> <button class="btn btn-danger mx-2" (click)="deletePost(post.id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
